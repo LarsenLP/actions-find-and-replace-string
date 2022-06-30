@@ -5,8 +5,8 @@ try {
     const source = core.getInput('source')
     const find = core.getInput('find')
     const replace = core.getInput('replace')
-    const branchName = source.replace(find, replace)
-    core.setOutput('value', branchName)
+    const value = source.replaceAll(find, replace)
+    core.setOutput('value', value)
 } catch (error) {
     core.setFailed(error.message)
 }

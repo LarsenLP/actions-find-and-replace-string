@@ -1,6 +1,6 @@
 # Find and replace strings
 
-This action executes find-and-replace on a given string (hint: use `${{ github.ref }}` to get your branch name and apply this on it for use in another action). 
+This action executes find-and-replace all occurences on a given string.
 
 ## Inputs
 
@@ -10,29 +10,29 @@ This action executes find-and-replace on a given string (hint: use `${{ github.r
 
 ### `find`
 
-**Required** The text you want to search for within the branch name (eg. `ref/heads/`)
+**Required** The text you want to search for
 
 ### `replace`
 
-**Required** The text you want to replace (eg. `head-`, ``, `root_`)
+**Required** The text you want to replace with
 
 ## Outputs
 
 ### `value`
 
-The new value containing the found-and-replaced string.
+The new value containing the found-and-replaced string
 
 ### Example usage
 
 ```yaml
-uses: mad9000/actions-find-and-replace-string@2
+uses: LarsenLP/actions-find-and-replace-string@3
 with:
     source: ${{ github.ref }} # this translates to ref/heads/main on the main branch, but can be any arbitrary string 
-    find: 'ref/heads/'        # we want to remove ref/heads/ from source 
-    replace: ''               # and replace it with a blank string (ie. removing it)
+    find: '/'                 # we want to find /
+    replace: '-'              # and replace it with -
 ```
 
-This will output `main`.
+This will output `ref-heads-main`.
 
 Check out `.github/workflows/main.yml` for more examples
 

@@ -1,9 +1,9 @@
 {
   "name": "find-and-replace-string",
   "version": "1.0.0",
-  "description": "Find-and-replace on a string",
+  "description": "Find and replace in strings",
   "main": "index.js",
-  "author": "Kishyr Ramdial <kishyr@mad.app>",
+  "author": "Lars Peter Larsen",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.2.6",

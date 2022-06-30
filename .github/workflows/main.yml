@@ -7,21 +7,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Run find-and-replace to remove refs/heads/
-        uses: mad9000/actions-find-and-replace-string@1
+      - name: Run find-and-replace to replace / with - (ref/heads/main -> ref-heads-main)
+        uses: LarsenLP/actions-find-and-replace-string@3
         id: findandreplace
         with:
           source: ${{ github.ref }}
-          find: 'refs/heads/'
-          replace: ''
-      - name: Get the above output
-        run: echo "The replaced value is ${{ steps.findandreplace.outputs.value }}"
-      - name: Run find-and-replace to remove slashes
-        uses: mad9000/actions-find-and-replace-string@1
-        id: findandreplace2
-        with:
-          source: ${{ steps.findandreplace.outputs.value }}
           find: '/'
           replace: '-'
-      - name: Get the final output
-        run: echo "The replaced value is ${{ steps.findandreplace2.outputs.value }}"
+      - name: Get the above output
+        run: echo "The replaced value is ${{ steps.findandreplace.outputs.value }}"
